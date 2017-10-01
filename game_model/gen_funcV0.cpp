@@ -17,6 +17,7 @@ using namespace std;
 //Global Constants
 const int X_size=20;//even number?
 const int Y_size=20;
+const char Open_space=' ';//I added this to change the "empty spaces so it's easier for you gues to see"
 map<int,char> b_list;//contains the non walled slots
 
 
@@ -47,6 +48,8 @@ void    _rec_gen_wall4_fill(char*,int,int,int,int,bool);//one dimentional fill? 
  * Boarder function is not adept at solving for unmatched x/y sizes
  * 
  * For the one dimentional fill include that for 3x3 center blocked segments randomly place non-obstacles
+ * 
+ * For blocked hole segments you can move the hole for that cell to the last spot keep it open
  */
 //Execution Start
 
@@ -111,7 +114,7 @@ char* get_b_chunk(int x,int y){//return a bool array
     char *arry;
     arry=new char [x*y];//=' ';
     for(int i=0;i<x*y;i++){
-        arry[i]='_';
+        arry[i]=Open_space;
     }
     return arry;
 }
@@ -119,7 +122,7 @@ int     conv_pos(int x,int y){//convert pos
     return y*X_size+x;
 }
 bool    is_free(char* arry,int pos){
-    if(arry[pos]=='_'){return true;}
+    if(arry[pos]==Open_space){return true;}
     return false;
 }
 bool    is_border(int pos){
@@ -153,7 +156,7 @@ void set_opens_walls(char* arry,int x,int y, int num){//no guarantee of num open
             case 0:
                 cout<<"top"<<endl;
                 temp=temp%(x-2)+1;
-                arry[temp]='_';//top
+                arry[temp]=Open_space;//top
                 break;
             case 1:
                 cout<<"bot"<<endl;
@@ -163,12 +166,12 @@ void set_opens_walls(char* arry,int x,int y, int num){//no guarantee of num open
             case 2:
                 cout<<"lft"<<endl;
                 temp=temp%(y-2)+1;
-                arry[y*temp]='_';//left
+                arry[y*temp]=Open_space;//left
                 break;
             case 3:
                 cout<<"rgt"<<endl;
                 temp=temp%(y-2)+1;
-                arry[y*temp+x-1]='_';//righty*
+                arry[y*temp+x-1]=Open_space;//righty*
                 break;
         }
     }
