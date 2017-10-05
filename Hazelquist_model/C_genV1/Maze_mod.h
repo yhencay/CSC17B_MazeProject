@@ -90,52 +90,52 @@ void    Maze_mod::_rec_gen_wall(int tl,int tr,int bl,int br){
     }
     //find holes
     int holes[4]={0,0,0,-1};//max four, typically three
-    bool hole_dir[4]={false,false,false,false};//(north,south,east,west)know which arm we've drilled 
+    bool hole_dir[4]={true,true,true,true};//(north,south,east,west)know which arm we've drilled 
     int h_index=0;//know how many more to add
     if(is_blist(north)){//check edges for path blocking, handle with holes
         cout<<"nb"<<endl;
         holes[h_index++]=north+X_size;
-        hole_dir[0]=true;
+        hole_dir[0]=false;
     }
     if(is_blist(south)){
         cout<<"sb"<<endl;
         holes[h_index++]=south-X_size;
-        hole_dir[1]=true;
+        hole_dir[1]=false;
     }
     if(is_blist(east)){
         cout<<"eb"<<endl;
         holes[h_index++]=east-1;
-        hole_dir[2]=true;
+        hole_dir[2]=false;
     }
     if(is_blist(west)){
         cout<<"wb"<<endl;
         holes[h_index++]=west+1;
-        hole_dir[3]=true;
+        hole_dir[3]=false;
     }
     while(h_index<3){//not super optimized but meh
-        switch(rand()%4){
+        switch(rand()%4){//225(too small) 345(fine) 309(fine)
             case 0:
-                if(!hole_dir[0]){
+                if(hole_dir[0]){
                     holes[h_index++]=set_hole(north,cross,cross,false);
-                    hole_dir[0]=true;
+                    hole_dir[0]=false;
                 }
                 break;
             case 1:
-                if(!hole_dir[1]){
+                if(hole_dir[1]){
                     holes[h_index++]=set_hole(cross,south,cross,false);
-                    hole_dir[1]=true;
+                    hole_dir[1]=false;
                 }
                 break;
             case 2:
-                if(!hole_dir[2]){
-                    holes[h_index++]=set_hole(west,cross,cross,true);
-                    hole_dir[2]=true;
+                if(hole_dir[2]){
+                    holes[h_index++]=set_hole(cross,east,cross,true);
+                    hole_dir[2]=false;
                 }
                 break;
             case 3:
-                if(!hole_dir[3]){
-                    holes[h_index++]=set_hole(cross,east,cross,true);
-                    hole_dir[3]=true;
+                if(hole_dir[3]){
+                    holes[h_index++]=set_hole(west,cross,cross,true);
+                    hole_dir[3]=false;
                 }
                 break;
         }
@@ -189,15 +189,15 @@ int     Maze_mod::xy_convert(int x,int y){//convert pos
 }
 int     Maze_mod::set_hole(int min, int max,int dead, bool horiz){//choose a spot
     int temp;
-    cout<<"("<<min<<","<<max<<")";
+    cout<<"("<<min<<","<<max<<")!"<<dead;
     do{
         if(horiz){
             temp= min+1+rand()%(max-min-1);// not edges
         }
         else{
-            temp=(min+X_size)+(X_size)*(rand()%((max-min)/(X_size))-1);//not edges
+            temp=(min)+(X_size)*(1+rand()%((max-min)/(X_size)-1));//not edges
         }
-    }while(temp==dead);//remove center generations
+    }while(temp==dead||temp<min||temp>max);//remove center generations
     cout<<"hole_"<<horiz<<":"<<temp<<endl;
     return temp;
 }
