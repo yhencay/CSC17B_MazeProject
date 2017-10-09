@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Temp Grid</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            var array="";
+            var items=[88,21,65];
+            var X_size=10;
+            var Y_size=10;
+            var Cursor=15;
+            var win=95;
+            //initial set
+            for(i=0;i<X_size*Y_size;i++){
+                if(i!==94&&(i<X_size||i>X_size*(Y_size-1))){
+                    array+="X";//top bottom boarder
+                }
+                else if(i%(X_size)===0||i%(X_size)===X_size-1){
+                    array+="X";//set left right
+                }
+                else{
+                    array+="_";//halls
+                }
+            }
+            
+            function getvalue(pos){
+                return array[pos];
+            }
+            function setvalue(pos,char){
+                this.array[pos]=char;
+            }
+            function Curs_plus(move){
+                if(move>-1&&move<(X_size*Y_size)-1&&array[move]==="_"){
+                    setvalue(Cursor,"_");//blank spot
+                    document.getElementById('grid_'+Cursor+'').innerHTML = "_";
+                    Cursor=move;
+                    setvalue(Cursor,"0");
+                    document.getElementById('grid_'+Cursor+'').innerHTML = "0";
+                    document.getElementById("pointed").innerHTML = Cursor;
+                    //rprint();
+                }
+            }
+            
+            function isWin(pos){
+                if(pos===win){
+                    document.getElementById("win").innerHTML="YOU WON";
+                }
+                else{
+                    Curs_plus(pos);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h3>Maze</h3>
+            <h3 style="display:inline" id="pointed">cursor</h3>
+            <h3 style="display:inline" id="win">win</h3>
+        </div>
+        <div id="grid">
+            Error setting grid
+        </div>
+        <script type="text/javascript">
+            print();
+            function rprint(){
+                for(var y=0;y<Y_size;y++){
+                    for(var x=0;x<X_size;x++){
+                        document.getElementById('grid_'+(x+y*X_size)+'').innerHTML = getvalue(y*X_size+x);
+                    }
+                }
+                document.getElementById("pointed").innerHTML = Cursor;
+            }
+            function print(){var overwrite= "</br>";
+                for(var y=0;y<Y_size;y++){
+                    for(var x=0;x<X_size;x++){
+                        overwrite+='<p style="display:inline" id="grid_'+(x+y*X_size)+'">'+getvalue(y*X_size+x)+'</p>';
+                    }
+                    overwrite+='</br>';
+                }
+                document.getElementById("grid").innerHTML = overwrite;
+                document.getElementById("pointed").innerHTML = Cursor;
+            }
+        </script>
+        <div id="next">
+            <button type="button" id="press_up" onclick="isWin(Cursor-X_size)">Cursor_up </button></br>
+            <button type="button" id="press_left" onclick="isWin(Cursor-1)">Cursor_lft</button>
+            <button type="button" id="press_right" onclick="isWin(Cursor+1)">Cursor_rgt</button></br>
+            <button type="button" id="press_down" onclick="isWin(Cursor+X_size)">Cursor_dwn</button>
+        </div>
+    </body>
+</html>
