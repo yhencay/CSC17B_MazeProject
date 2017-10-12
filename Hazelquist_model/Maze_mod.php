@@ -1,6 +1,6 @@
 <?php
 /*
- * blacklist check not functioning properly 
+ * Note: start and finish funtion must be called before walls are generated
  * 
  */
 
