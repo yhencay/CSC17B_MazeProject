@@ -69,7 +69,7 @@
                 for(var y=0;y<Y_size;y++){
                     for(var x=0;x<X_size;x++){
                         if(x+y*X_size===Cursor){
-                            overwrite+='<img style="display:inline" width="10px" height="10px" id="grid_'+(x+y*X_size)+'" src="cursor_img.png">';
+                            overwrite+='<img style="display:inline" width="10px" height="10px" id="grid_'+(x+y*X_size)+'" src="cursor_img.png">';//change to active character icon (M1.png, M2.png)
                         }
                         else{//"line-height:11px"
                             overwrite+='<img style="display:inline" width="10px" height="10px" id="grid_'+(x+y*X_size)+'"src='+change(getvalue(y*X_size+x))+'>';
