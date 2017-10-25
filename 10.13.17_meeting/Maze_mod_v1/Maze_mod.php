@@ -187,7 +187,7 @@ class Maze_mod{
                 $temp= $min+1+rand()%($max-$min-1);// not edges
             }
             else{
-                $temp=($min)+($this->X_size)*(1+rand()%(intdiv(($max-$min),($this->X_size))-1));//not edges
+                $temp=($min)+($this->X_size)*(1+rand()%(_intdiv(($max-$min),($this->X_size))-1));//not edges
             }
         }while($temp==$dead||$temp<$min||$temp>$max);//remove center generations
         return $temp;
