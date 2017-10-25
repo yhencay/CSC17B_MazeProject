@@ -5,7 +5,7 @@
  */
 
 function _intdiv($param_1,$param_2){//older versions of xamp may not include intdiv
-    return(($param_1/$param_2)-$param_1%$param_2);//divide, and then subtract the remainder
+    return(($param_1-($param_1%$param_2))/$param_2);//divide, and then subtract the remainder
 }
 
 class Maze_mod{
