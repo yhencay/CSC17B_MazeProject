@@ -4,6 +4,10 @@
  * 
  */
 
+function _intdiv($param_1,$param_2){//older versions of xamp may not include intdiv
+    return(($param_1/$param_2)-$param_1%$param_2);//divide, and then subtract the remainder
+}
+
 class Maze_mod{
     private $X_size;
     private $Y_size;
@@ -39,10 +43,10 @@ class Maze_mod{
             //end conditions
         //echo $tl.' '.$tr.' '.$bl.' '.$br.'</br>';
         if(($tr-$tl)<=3){return;}
-        if(intdiv(($bl-$tr),($this->X_size))<=2){return;}
+        if(_intdiv(($bl-$tr),($this->X_size))<=2){return;}
         //decide a division
         $vert=2+rand()%(($tr-$tl)-3);//decision
-        $hori=2+rand()%(intdiv(($br-$tl),($this->X_size))-3);//decision //should be 3
+        $hori=2+rand()%(_intdiv(($br-$tl),($this->X_size))-3);//decision //should be 3
         //echo 'horizonal:'.intdiv(($br-$tl),($this->X_size)-3).' '.$hori.'</br>';
         //get some information based on the division
         $north=$tl+$vert;
@@ -55,7 +59,7 @@ class Maze_mod{
         for($i=1;$i<($tr-$tl);$i++){//iterate across left right place horizontal
             array_push($w_list,($tl+($hori*$this->X_size)+$i));
         }
-        for($i=1;$i<intdiv(($br-$tl),$this->X_size);$i++){//iterate top down place vertical
+        for($i=1;$i<_intdiv(($br-$tl),$this->X_size);$i++){//iterate top down place vertical
             array_push($w_list,(($tl)+$vert+$i*$this->X_size));
         }
         //find holes
