@@ -1,0 +1,134 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	background: gray;
+}
+
+div.target p {display:none}
+div.target p:target {display:block}
+
+h1 {
+	margin: 0;
+	padding: 0;
+	margin-top: 0;
+}
+
+#userInfo {
+	border-bottom-right-radius:15px;
+	border-bottom-left-radius:15px;
+	width: full;
+	padding-top: 10px;
+	height: 35px;
+	background-color: #7B5DBA;
+	opacity: 0.9;
+}
+
+#header {
+	border-top-right-radius:15px;
+	border-top-left-radius:15px;
+	width: 1250px;
+	height: 250px;
+	margin: auto;
+	background: #121265;
+	opacity: 0.8;
+}
+
+#main-nav {
+	width: 1250px;
+	height: 50px;
+	margin: auto;
+	overflow: hidden;
+	background: #2B2B69;
+}
+
+#content {
+	width: 1240px;
+	height: 500px;
+	margin: auto;
+	padding-top: 10px;
+	padding-left: 10px;
+	background: #00001F;
+	line-height: 20px;
+	padding-bottom: 60px;
+	opacity: 0.8;
+}
+
+/*
+height: 100%;
+	width: 100%;
+	min-width: 1000px;
+	min-height: 1000px;
+	font-size: 16px; 
+	height: 2em; 
+	*/
+
+#footer  {
+	border-top-right-radius:15px;
+	border-top-left-radius:15px;
+	position: bottom;
+	opacity: 0.8;
+	bottom: 0;
+	font-family: Tahoma, Arial, Helvetica, Sans-serif;
+	font-size: 10px;
+	width: full;
+	height: 35px;
+	clear: both;
+	border-top: 1px solid #efefef;
+	padding: 13px 25px;
+	line-height: 18px;
+	background: #7B5DBA;
+}
+
+#footer #altnav
+{
+width: 350px;
+float: right;
+text-align: right;
+}
+
+.fullscreen-bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -100;
+}
+
+.fullscreen-bg__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+	background: url('maze.mp4') no-repeat;
+	background-size: cover;
+	transition: 1s opacity;
+}
+
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(maze.mp4) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+
+
+
+
+
