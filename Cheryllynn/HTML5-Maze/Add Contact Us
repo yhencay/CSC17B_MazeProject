@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Contact Us</h3>
+
+<p>Enter some text in the fields below, then press the "Submit" button to submit the form.</p>
+
+<form id"myForm" action="/action_page.php>
+<div class="nf-form-fields-required">Fields marked with an <span class="ninja-forms-req-symbol">*</span> are required</div> <br >
+<label for="nf-field-1" class="">Name <span class="ninja-forms-req-symbol">*</span> </label> <br >
+<input id="nf-field-1" name="nf-field-1" class="ninja-forms-field nf-element" type="text" value="">
+<div class="nf-error-msg nf-error-required-error">This is a required field.</div>
+
+<br >
+<label for="nf-field-2" class="">Email <span class="ninja-forms-req-symbol">*</span> </label> <br >
+<input id="nf-field-2" name="nf-field-2" class="ninja-forms-field nf-element" type="email" value="">
+<div class="nf-error-msg nf-error-required-error">This is a required field.</div>
+
+<br >
+<label for="nf-field-3" class="">Message <span class="ninja-forms-req-symbol">*</span> </label><br >
+<textarea id="nf-field-3" name="nf-field-3" class="ninja-forms-field nf-element" "=""></textarea>
+<div class="nf-error-msg nf-error-required-error">This is a required field.</div>
+
+<br >
+<div class="nf-error-msg nf-error-field-errors">Please correct errors before submitting this form.</div>
+<input type="button" onclick="myFunction()" value="Submit">
+</form>
+
+<script>
+function myFunction() {
+    document.getElementById("myForm").submit();
+}
+</script>
+
+</body>
+</html>
