@@ -1,0 +1,33 @@
+Items to store:
+	1)Player name
+	2)Join date
+	3)Character icon
+	4)Number of wins
+	5)Number of loses
+	6)Number of ties
+	7)Total game points
+	8)Time spent in game
+	9)Player ID
+	
+	//game data
+	g1)map
+	g2)item location
+	g3)item type //(if specific items are still included)
+	g4)time limit
+	g5)opponent's items/progress
+	g6)player location
+	
+//Note: Some data may be double stored, after '?' possible data
+Database items:
+	[1,2,3,4,5,6,7,8,9]? 
+	//comments:
+	
+Session items:
+	[g3]? g4,g5
+	//comments:
+	
+Cookie items:
+	[g1,g2,g6]? 
+	//comments:
+
+
