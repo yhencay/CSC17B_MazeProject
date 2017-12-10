@@ -1,0 +1,36 @@
+
+//generates X items using function
+var type[x];
+var img[x];
+for (var i=0; i<x; i++) {
+     type[i]=getindx();
+}
+for (var i=0; i<x; i++) {
+      if (type[i]==1) {
+          img[i]="icecube_item";
+     } else if (type[i]==2) {
+         img[i]="apple_item";
+     } else if (type[i]==3) {
+         img[i]="book_item";
+     } else if (type[i]==4) {
+         img[i]="pencil_item";
+     } else if (type[i]==5) {
+         img[i]="milk_item";
+     } else {
+         img[i]="crystalball_item";
+     }
+}
+//Call display function for each (to be added later)
+
+
+//Function that assigns index and returns one at random
+function getindx() {
+var index=0;
+index=rand()%5+1;
+return index;
+}
+
+//Display items
+function display() {
+//to be added later
+}
