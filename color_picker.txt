@@ -1,0 +1,5 @@
+This is a potential list:
+headers: #6495ED (blue-ish)
+background: #B0E0E6 (powder blue)
+grid/line accents: #C69FBC (tan)
+font: #CCCCCCC (grey)
