@@ -1,0 +1,21 @@
+/* My own Final Project Styles 
+This file is the only place where CSS style points will be given
+*/
+
+body {
+	padding: inherit;
+	background-color: #b3b3ff;
+}footer {
+	text-align: center;
+}
+.container .row .col-sm-15 {
+	background-color: #8080FF;
+
+}
+.container .row {
+
+}
+.row .col-sm-10 {
+	background-color: #8080FF;
+	 background-position: center; 
+}
