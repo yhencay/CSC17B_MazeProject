@@ -34,3 +34,17 @@ return index;
 function display() {
 //to be added later
 }
+function getimg(var index) {
+     if (index==1) {
+          return "item_1"; //icecube item
+     } else if (index==2) {
+         return "item_2"; //apple item
+     } else if (index==3) {
+         return "item_3"; //book item
+     } else if (index==4) {
+         return "item_4"; //pencil_item
+     } else if (index==5) {
+         return "item_5"; //milk_item
+     } else {
+         return "item_6"; //crystalball_item
+     }
